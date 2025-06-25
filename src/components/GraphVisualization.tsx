@@ -225,11 +225,7 @@ const GraphVisualization: React.FC<GraphVisualizationProps> = ({ crawlData }) =>
       <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-3 text-xs text-gray-300">
         <div className="flex items-center space-x-2 mb-2">
           <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-          <span>Root pages</span>
-        </div>
-        <div className="flex items-center space-x-2 mb-2">
-          <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-          <span>Child pages</span>
+          <span>Node</span>
         </div>
         <div className="text-gray-400">
           Click nodes to open URLs

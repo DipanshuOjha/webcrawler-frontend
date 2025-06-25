@@ -8,9 +8,9 @@ interface CrawlStatsProps {
 }
 
 const CrawlStats: React.FC<CrawlStatsProps> = ({ crawlData }) => {
-  const graphData = transformCrawlDataToGraph(crawlData);
-  const maxDepth = Math.max(...graphData.nodes.map(node => node.depth));
-  const rootNodes = graphData.nodes.filter(node => node.isRoot);
+  //const graphData = transformCrawlDataToGraph(crawlData);
+  // maxDepth = Math.max(...graphData.nodes.map(node => node.depth));
+  //const rootNodes = graphData.nodes.filter(node => node.isRoot);
 
   const stats = [
     {
@@ -20,20 +20,13 @@ const CrawlStats: React.FC<CrawlStatsProps> = ({ crawlData }) => {
       color: 'text-blue-400',
       bgColor: 'bg-blue-600/20'
     },
-    {
-      label: 'Root Pages',
-      value: rootNodes.length,
-      icon: TreePine,
-      color: 'text-green-400',
-      bgColor: 'bg-green-600/20'
-    },
-    {
-      label: 'Max Depth',
-      value: maxDepth,
-      icon: TreePine,
-      color: 'text-purple-400',
-      bgColor: 'bg-purple-600/20'
-    },
+    // {
+    //   label: 'Root Pages',
+    //   value: rootNodes.length,
+    //   icon: TreePine,
+    //   color: 'text-green-400',
+    //   bgColor: 'bg-green-600/20'
+    // },
     {
       label: 'Duration',
       value: `${crawlData.duration_seconds.toFixed(2)}s`,
@@ -74,7 +67,7 @@ const CrawlStats: React.FC<CrawlStatsProps> = ({ crawlData }) => {
       </div>
 
       {/* Depth Distribution */}
-      <div className="bg-black/40 rounded-lg p-4 border border-white/10 mt-6">
+      {/* <div className="bg-black/40 rounded-lg p-4 border border-white/10 mt-6">
         <h3 className="text-white font-semibold mb-3">Depth Distribution</h3>
         <div className="space-y-2">
           {Array.from({ length: maxDepth + 1 }, (_, depth) => {
@@ -95,7 +88,7 @@ const CrawlStats: React.FC<CrawlStatsProps> = ({ crawlData }) => {
             );
           })}
         </div>
-      </div>
+      </div> */}
 
       {/* Domain Breakdown */}
       <div className="bg-black/40 rounded-lg p-4 border border-white/10">
@@ -114,7 +107,7 @@ const CrawlStats: React.FC<CrawlStatsProps> = ({ crawlData }) => {
 
             return Array.from(domains.entries())
               .sort((a, b) => b[1] - a[1])
-              .slice(0, 5)
+              .slice(0, 20)
               .map(([domain, count]) => (
                 <div key={domain} className="flex justify-between items-center">
                   <span className="text-gray-300 text-sm truncate">{domain}</span>
